@@ -1,0 +1,64 @@
+@import "colors";
+@import "responsive";
+
+%text-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  background-color: $light;
+  height: 80px;
+  justify-content: space-between;
+  padding: 1rem;
+  @extend %text-align;
+  &-logo {
+    text-decoration: none;
+    color: $dark;
+    font-size: 1.5rem;
+    @extend %text-align;
+  }
+  &-menu {
+    display: block;
+    @include tablet {
+      // display: none;
+      position: fixed;
+
+      top: 80px;
+      left: -106%;
+      height: 100vh;
+      width: 100vw;
+      text-align: center;
+      line-height: 4rem;
+      background-color: rgba(24, 21, 21, 0.98);
+      transition: 0.3s ease-in-out;
+    }
+  }
+  &-menu.active {
+    @include tablet {
+      left: 0;
+    }
+  }
+  &-menu a {
+    padding: 0.5rem;
+    text-decoration: none;
+    color: $dark;
+    @include tablet {
+      display: block;
+      color: white;
+    }
+  }
+  &-menu a:hover {
+    color: $lime;
+    transition: all 0.3s ease-in-out;
+  }
+  &-icon {
+    display: none;
+    @include tablet {
+      display: block;
+      font-size: 1.5rem;
+    }
+  }
+}
